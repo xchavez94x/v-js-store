@@ -102,6 +102,54 @@
     .show_mobile_menu {
         animation: showMobileMenu .3s ease-in forwards;
     }
+
+    .button_container {
+        width: 100%;
+        @include centerer;
+        .cart_button {
+            width: 70%;
+            height: 2rem;
+            background-color: $block-color;
+            color: $button-text-color;
+            border-radius: .3rem;
+            font-family: notosans-medium;
+            margin: .3rem auto;
+            &:hover {
+                background-color: $block-color-2;
+                cursor: pointer;
+            
+            }
+        }
+    }
+    
+
+    .cart {
+        width: 90%;
+        height: 100%;
+        overflow-y: scroll;
+        background-color: rgb(159, 159, 159);
+        position: fixed;
+        z-index: 200;
+        top: 0;
+        .hide_cart {
+            width: 2rem;
+            height: 2rem;
+            color: $background-color;
+            background-color: rgb(249, 141, 141);
+            @include centerer;
+            float: right;
+            &:hover {
+                cursor: pointer;
+                background-color: red;
+            }
+        }
+        ul {
+            width: 90%;
+            margin: auto;
+            list-style-type: none;
+            padding: 1rem .3rem;
+        }
+    }
     
     @keyframes showMobileMenu {
         0% {
@@ -116,10 +164,11 @@
     }
     
     .container {
-        width: 24rem;
+        width: 100%;
         margin: 2rem auto;
+        
         .card {
-            width: 22rem;
+            width: 90%;
             height: 40rem;
             margin: 2rem auto;
             border: solid 1px $border-color;
@@ -191,6 +240,7 @@
     }
 }
 
+
 @media only screen and (min-width: 40rem) {
     .app {
         width: 100%;
@@ -217,7 +267,34 @@
                 .buttons {
                     width: 70%;
                 }
+
+                
             }
+        }
+
+        .button_container {
+            width: 20%;
+            margin: .3rem .9rem;
+            @include centerer;
+            .cart_button {
+                width: 70%;
+                height: 2rem;
+                background-color: $block-color;
+                color: $button-text-color;
+                border-radius: .3rem;
+                font-family: notosans-medium;
+                margin: .3rem auto;
+                &:hover {
+                    background-color: $block-color-2;
+                    cursor: pointer;
+                
+                }
+            }
+
+
+        }
+        .cart {
+            width: 20rem;
         }
         .container {
             width: 80%;
@@ -229,6 +306,7 @@
             justify-content: space-evenly;
             align-items: center;
             .card {
+                width: 24rem;
                 margin: 2rem 1rem ;
             }
         }   

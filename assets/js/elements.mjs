@@ -4,6 +4,8 @@ const backdrop = document.querySelector('.backdrop');
 const app = document.querySelector('.app');
 const container = document.querySelector('.container');
 const addToCartButton = document.querySelector('.add_to_cart');
+const checkCartButton = document.querySelector('#cart_button');
+const cartElement = document.querySelector('.cart');
 
 const elements =  {
     app: app,
@@ -11,7 +13,9 @@ const elements =  {
     menuButton: menuButton,
     mobileMenu: mobileMenu,
     backdrop: backdrop,
-    addToCartButton: addToCartButton
+    addToCartButton: addToCartButton,
+    checkCartBtn: checkCartButton,
+    cartElement: cartElement
 }
 
 export default elements

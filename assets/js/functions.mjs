@@ -2,8 +2,7 @@ import elements from "./elements.mjs";
 let cart = []
 
 const menuHandler = (e) => {
-    const { mobileMenu, backdrop } = elements;
-    renderCart()
+    const { mobileMenu, backdrop, cartElement } = elements;
     switch(e.target.id) {
         case('burger_menu'): {
             mobileMenu.classList.toggle('show_mobile_menu');
@@ -13,6 +12,7 @@ const menuHandler = (e) => {
         case ('backdrop'): {
             mobileMenu.classList.remove('show_mobile_menu');
             backdrop.classList.remove('showBackdrop');
+            cartElement.classList.remove('cart')
             break;
         }
         default: return 
@@ -20,24 +20,23 @@ const menuHandler = (e) => {
 }
 
 const fetchData = async () => {
-    let isLoading = true;
     let fetchedData;
     try {
         let response = await fetch('https://fakestoreapi.com/products');
         fetchedData = await response.json();
-        isLoading = false
 
     } catch(error) {
         console.log(error)
     }  
     console.log(fetchedData)
-    return [ fetchedData, isLoading ] 
+    return [ fetchedData ] 
 }
 
 const addToCart = async (e, products) => {
     const prodId = +e.target.dataset.productid;
     const existingProductIndex = products.findIndex(product => product.id === prodId);
     const singleProduct = products[existingProductIndex];
+
     if(cart[existingProductIndex]) {
         console.log(cart)
         let newQuantity = cart[existingProductIndex].quantity;
@@ -50,10 +49,12 @@ const addToCart = async (e, products) => {
             price: singleProduct.price,
             quantity: 1,
         })
+
         cart = copiedCart
-        return cart
+        console.log(cart)
     }
-    return cart
+    const jsonedCart = JSON.stringify(cart)
+    sessionStorage.setItem('cart', jsonedCart)
 }
 
 const renderLoading = (cont) => {
@@ -84,16 +85,47 @@ const renderCards = async () => {
             
         })
         const addToCartButtons = document.querySelectorAll('.add_to_cart');
-        addToCartButtons.forEach(button => button.addEventListener('click', (e) => addToCart( e, fetchedData )))
+        addToCartButtons.forEach(button => button.addEventListener('click', (e) => {
+            e.stopPropagation()
+            addToCart( e, fetchedData )
+        }))
     } else {
         renderLoading(container)
     }
     
 }
 
-const renderCart = () => {
-    console.log(cart)
+const renderCart = (e) => {
+    const { app, backdrop } = elements
+    const cartElement = document.createElement('div');
+    cartElement.classList.add('cart')
+    cartElement.innerHTML += "<button class='hide_cart' >X</button>"
+    const cart = JSON.parse(sessionStorage.getItem('cart'));
+    cart.forEach(item => {
+        const itemEl = `
+            <ul>
+                <li>
+                    ${item.title}
+                </li>
+                <li>
+                    ${item.price}
+                </li>
+                <li>
+                    ${item.quantity}
+                </li>
+            </ul>
+        `
+        cartElement.innerHTML += itemEl
+    })
+    backdrop.classList.add('showBackdrop')
+    app.appendChild(cartElement)
+    const cartButtonRem = document.querySelector('.hide_cart');
+    cartButtonRem.addEventListener('click', () => {
+        backdrop.classList.remove('showBackdrop')
+        app.removeChild(cartElement)
+    })
 }
+
 
 const checkPage = async () => {
     if(location.pathname === '/index.html')  {

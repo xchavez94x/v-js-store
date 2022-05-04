@@ -124,6 +124,54 @@ html {
 .app .show_mobile_menu {
   animation: showMobileMenu 0.3s ease-in forwards;
 }
+.app .button_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app .button_container .cart_button {
+  width: 70%;
+  height: 2rem;
+  background-color: #6246ea;
+  color: #fffffe;
+  border-radius: 0.3rem;
+  font-family: notosans-medium;
+  margin: 0.3rem auto;
+}
+.app .button_container .cart_button:hover {
+  background-color: #7e68e8;
+  cursor: pointer;
+}
+.app .cart {
+  width: 90%;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: rgb(159, 159, 159);
+  position: fixed;
+  z-index: 200;
+  top: 0;
+}
+.app .cart .hide_cart {
+  width: 2rem;
+  height: 2rem;
+  color: #fffffe;
+  background-color: rgb(249, 141, 141);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+}
+.app .cart .hide_cart:hover {
+  cursor: pointer;
+  background-color: red;
+}
+.app .cart ul {
+  width: 90%;
+  margin: auto;
+  list-style-type: none;
+  padding: 1rem 0.3rem;
+}
 @keyframes showMobileMenu {
   0% {
     transform: translateX(-200%);
@@ -136,11 +184,11 @@ html {
   }
 }
 .app .container {
-  width: 24rem;
+  width: 100%;
   margin: 2rem auto;
 }
 .app .container .card {
-  width: 22rem;
+  width: 90%;
   height: 40rem;
   margin: 2rem auto;
   border: solid 1px #949595;
@@ -246,6 +294,29 @@ html {
   .app .navbar .inner_container .buttons {
     width: 70%;
   }
+  .app .button_container {
+    width: 20%;
+    margin: 0.3rem 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .app .button_container .cart_button {
+    width: 70%;
+    height: 2rem;
+    background-color: #6246ea;
+    color: #fffffe;
+    border-radius: 0.3rem;
+    font-family: notosans-medium;
+    margin: 0.3rem auto;
+  }
+  .app .button_container .cart_button:hover {
+    background-color: #7e68e8;
+    cursor: pointer;
+  }
+  .app .cart {
+    width: 20rem;
+  }
   .app .container {
     width: 80%;
     margin: auto;
@@ -257,6 +328,7 @@ html {
     align-items: center;
   }
   .app .container .card {
+    width: 24rem;
     margin: 2rem 1rem;
   }
 }

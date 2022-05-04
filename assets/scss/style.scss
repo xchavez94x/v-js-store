@@ -1,0 +1,14 @@
+@font-face {
+    font-family: notosans-medium;
+    src: url(../fonts/NotoSans-Medium.ttf);
+}
+
+@font-face {
+    font-family: notosans-bold;
+    src: url(../fonts/NotoSans-Bold.ttf);
+}
+@import "helpers/mixins";
+@import "helpers/colors" ;
+@import  "styles/reset";
+@import "styles/main";
+

@@ -1,0 +1,12 @@
+@mixin centerer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin horizontalElements {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}

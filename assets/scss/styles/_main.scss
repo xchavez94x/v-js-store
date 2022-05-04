@@ -1,0 +1,237 @@
+
+
+.app {
+    width: 100%;
+    margin: auto;
+    font-family: notosans-medium;
+    height: 10rem;
+    .navbar {
+        width: 100%;
+        height: 2.9rem;
+        background-color: $background-color;
+        @include centerer;
+        border-bottom: solid 1px $border-color;
+        box-shadow: 2px 4px 8px $border-color;
+
+        .inner_container {
+            width: 24rem;
+            margin: auto;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+    
+            .logo {
+                width: 4rem;
+                height: 100%;
+                color: $headline-color;
+            }
+    
+            .buttons {
+                display: none;
+            }
+    
+            .burger_menu {
+                width: 3rem;
+                height: 100%;
+                display: flex;
+                flex-direction: row-reverse;
+                img {
+                    width: 2rem;
+                    align-self: flex-end;
+                }
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        
+    }
+
+    .mobile_menu {
+        border-right: 1px $border-color solid;
+        width: 18rem;
+        height: 100vh;
+        position: fixed;
+        z-index: 300;
+        top: 0;
+        transition: all .4s ease-in;
+        transform: translateX(-200%);
+        background-color: rgba($color: $background-color, $alpha: 1);
+        @include centerer;
+        .inner_block {
+            width: 80%;
+            height: 26rem;
+            @include horizontalElements;
+            .logo {
+                width: 100%;
+                height: 4rem;
+                font-family: notosans-bold;
+                color: headline-color;
+                @include centerer;
+            }
+            .links {
+                width: 100%;
+                height: 12rem;
+                @include horizontalElements;
+                a {
+                    color: $paragraph-color;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    
+    .backdrop {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 100;
+        background-color: rgba($color: $background-color, $alpha: .7);
+        display: none;
+    }
+    
+    .showBackdrop {
+        display: block;
+        
+        transition: all .3s ease-in;
+    }
+    
+    .show_mobile_menu {
+        animation: showMobileMenu .3s ease-in forwards;
+    }
+    
+    @keyframes showMobileMenu {
+        0% {
+            transform: translateX(-200%);
+        }
+        90% {
+            transform: translateX(10%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    
+    .container {
+        width: 24rem;
+        margin: 2rem auto;
+        .card {
+            width: 22rem;
+            height: 40rem;
+            margin: 2rem auto;
+            border: solid 1px $border-color;
+            border-radius: .2rem;
+            @include  horizontalElements;
+            box-shadow: 0px 4px 10px $border-color;
+            .card_image {
+                width: 60%;
+                margin: auto;
+                background-color: bisque;
+            }
+            .card_title {
+                font-family: notosans-medium;
+                width: 100%;
+                text-align: center;
+                font-size: 1.2rem;
+                height: 6rem;
+                @include centerer ;
+            }
+            .card_description {
+                width: 90%;
+                height: 6rem;
+                overflow: hidden;
+                text-align: center;
+                font-size: .7rem;
+            }
+            .card_price {
+                width: 100%;
+                height: 3rem;
+                @include centerer;
+            }
+
+            .card_actions {
+                width: 100%;
+                height: 7rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                button {
+                    width: 8rem;
+                    height: 3rem;
+                    background-color: $block-color;
+                    color: $button-text-color;
+                    border-radius: .3rem;
+                    font-family: notosans-medium;
+                    &:hover {
+                        background-color: $block-color-2;
+                        cursor: pointer;
+                    }
+                }
+
+                a {
+                    width: 8rem;
+                    height: 3rem;
+                    font-size: .7rem;
+                    background-color: $block-color;
+                    color: $button-text-color;
+                    border-radius: .3rem;
+                    @include centerer;
+                    text-decoration: none;
+                    &:hover {
+                        background-color: $block-color-2;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 40rem) {
+    .app {
+        width: 100%;
+        .navbar {
+            flex-direction: row;
+            width: 100%;
+            .inner_container {
+                width: 80%;
+                .logo {
+                    width: 20%;
+                    padding: 0 0 0 20px ;
+                }
+                .buttons {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    color: $headline-color;
+                }
+                .burger_menu {
+                    display: none;
+                }
+                .buttons {
+                    width: 70%;
+                }
+            }
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            .card {
+                margin: 2rem 1rem ;
+            }
+        }   
+    }
+    
+}

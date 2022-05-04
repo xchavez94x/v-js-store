@@ -1,0 +1,264 @@
+@font-face {
+  font-family: notosans-medium;
+  src: url(../fonts/NotoSans-Medium.ttf);
+}
+@font-face {
+  font-family: notosans-bold;
+  src: url(../fonts/NotoSans-Bold.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 20px;
+  font-family: notosans-medium;
+  background-color: #fffffe;
+}
+
+.app {
+  width: 100%;
+  margin: auto;
+  font-family: notosans-medium;
+  height: 10rem;
+}
+.app .navbar {
+  width: 100%;
+  height: 2.9rem;
+  background-color: #fffffe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1px #949595;
+  box-shadow: 2px 4px 8px #949595;
+}
+.app .navbar .inner_container {
+  width: 24rem;
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.app .navbar .inner_container .logo {
+  width: 4rem;
+  height: 100%;
+  color: #2b2c34;
+}
+.app .navbar .inner_container .buttons {
+  display: none;
+}
+.app .navbar .inner_container .burger_menu {
+  width: 3rem;
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.app .navbar .inner_container .burger_menu img {
+  width: 2rem;
+  align-self: flex-end;
+}
+.app .navbar .inner_container .burger_menu:hover {
+  cursor: pointer;
+}
+.app .mobile_menu {
+  border-right: 1px #949595 solid;
+  width: 18rem;
+  height: 100vh;
+  position: fixed;
+  z-index: 300;
+  top: 0;
+  transition: all 0.4s ease-in;
+  transform: translateX(-200%);
+  background-color: #fffffe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app .mobile_menu .inner_block {
+  width: 80%;
+  height: 26rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.app .mobile_menu .inner_block .logo {
+  width: 100%;
+  height: 4rem;
+  font-family: notosans-bold;
+  color: headline-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app .mobile_menu .inner_block .links {
+  width: 100%;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.app .mobile_menu .inner_block .links a {
+  color: #2b2c34;
+  text-decoration: none;
+}
+.app .backdrop {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 254, 0.7);
+  display: none;
+}
+.app .showBackdrop {
+  display: block;
+  transition: all 0.3s ease-in;
+}
+.app .show_mobile_menu {
+  animation: showMobileMenu 0.3s ease-in forwards;
+}
+@keyframes showMobileMenu {
+  0% {
+    transform: translateX(-200%);
+  }
+  90% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.app .container {
+  width: 24rem;
+  margin: 2rem auto;
+}
+.app .container .card {
+  width: 22rem;
+  height: 40rem;
+  margin: 2rem auto;
+  border: solid 1px #949595;
+  border-radius: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0px 4px 10px #949595;
+}
+.app .container .card .card_image {
+  width: 60%;
+  margin: auto;
+  background-color: bisque;
+}
+.app .container .card .card_title {
+  font-family: notosans-medium;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app .container .card .card_description {
+  width: 90%;
+  height: 6rem;
+  overflow: hidden;
+  text-align: center;
+  font-size: 0.7rem;
+}
+.app .container .card .card_price {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app .container .card .card_actions {
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.app .container .card .card_actions button {
+  width: 8rem;
+  height: 3rem;
+  background-color: #6246ea;
+  color: #fffffe;
+  border-radius: 0.3rem;
+  font-family: notosans-medium;
+}
+.app .container .card .card_actions button:hover {
+  background-color: #7e68e8;
+  cursor: pointer;
+}
+.app .container .card .card_actions a {
+  width: 8rem;
+  height: 3rem;
+  font-size: 0.7rem;
+  background-color: #6246ea;
+  color: #fffffe;
+  border-radius: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.app .container .card .card_actions a:hover {
+  background-color: #7e68e8;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 40rem) {
+  .app {
+    width: 100%;
+  }
+  .app .navbar {
+    flex-direction: row;
+    width: 100%;
+  }
+  .app .navbar .inner_container {
+    width: 80%;
+  }
+  .app .navbar .inner_container .logo {
+    width: 20%;
+    padding: 0 0 0 20px;
+  }
+  .app .navbar .inner_container .buttons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #2b2c34;
+  }
+  .app .navbar .inner_container .burger_menu {
+    display: none;
+  }
+  .app .navbar .inner_container .buttons {
+    width: 70%;
+  }
+  .app .container {
+    width: 80%;
+    margin: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .app .container .card {
+    margin: 2rem 1rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
